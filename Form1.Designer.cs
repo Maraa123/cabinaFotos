@@ -44,7 +44,7 @@
             this.BtnCapturar.TabIndex = 0;
             this.BtnCapturar.Text = "CAPTURAR";
             this.BtnCapturar.UseVisualStyleBackColor = true;
-            this.BtnCapturar.Click += new System.EventHandler(this.BtnCapturar_Click);
+      //      this.BtnCapturar.Click += new System.EventHandler(this.BtnCapturar_Click);
             // 
             // pictureBoxVideo
             // 
