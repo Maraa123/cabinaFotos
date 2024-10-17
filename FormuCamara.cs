@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace cabinaFotos
 {
-    public partial class Form2 : Form
+    public partial class FormuCamara : Form
     {
-        public Form2()
+        public FormuCamara()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+
         }
     }
 }
