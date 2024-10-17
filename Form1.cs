@@ -22,11 +22,10 @@ namespace cabinaFotos
         private bool hayDispositivos;
         private FilterInfoCollection MisDispositivos;
         private VideoCaptureDevice MiWebCam;
+        private int contadorFotos = 0;
         public Form1()
         {
             InitializeComponent();
-         
-  
         }
 
         public void CargaDispositivos() {
@@ -82,9 +81,63 @@ namespace cabinaFotos
 
         private void btnTomarFoto_Click(object sender, EventArgs e)
         {
-            if (MiWebCam != null && MiWebCam.IsRunning) { 
-            pictureBoxCapturada.Image = pictureBoxVideo.Image;
-                pictureBoxCapturada.Image.Save(Path + "\\hdeleon.jpg", ImageFormat.Jpeg);
+            if (MiWebCam != null && MiWebCam.IsRunning)
+            {
+                pictureBoxCapturada.Image = pictureBoxVideo.Image;
+
+                // Asegurarse de que el usuario haya seleccionado una ruta
+                if (string.IsNullOrEmpty(Path))
+                {
+                    MessageBox.Show("Por favor, seleccione una carpeta para guardar las fotos.");
+                    return;
+                }
+
+                // Usar la ruta seleccionada y generar un nombre único para el archivo
+                string nombreArchivo = System.IO.Path.Combine(Path, "captura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg");
+
+                pictureBoxCapturada.Image.Save(nombreArchivo, ImageFormat.Jpeg);
+                MessageBox.Show("Foto guardada en: " + nombreArchivo);
+            }
+
+
+      /*      if (MiWebCam != null && MiWebCam.IsRunning) {
+
+                contadorFotos++;
+                pictureBoxCapturada.Image = pictureBoxVideo.Image;
+                pictureBoxCapturada.Image.Save(Path + "\\cabinaFotos_" + contadorFotos + ".jpg", ImageFormat.Jpeg);
+            }*/
+        }
+
+        private string SeleccionarRutaFotos()
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "Seleccione la carpeta donde desea guardar las fotos";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    return dialog.SelectedPath; // Devolver la ruta seleccionada
+                }
+                else
+                {
+                    return null; // Si no se selecciona una carpeta
+                }
+            }
+        }
+       
+
+        private void btnCarpeta_Click(object sender, EventArgs e)
+        {
+            string nuevaRuta = SeleccionarRutaFotos();
+
+            if (!string.IsNullOrEmpty(nuevaRuta))
+            {
+                Path = nuevaRuta;
+                MessageBox.Show("Ruta seleccionada: " + Path);
+            }
+            else
+            {
+                MessageBox.Show("No se seleccionó ninguna carpeta.");
             }
         }
     }

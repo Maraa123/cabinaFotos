@@ -38,6 +38,7 @@
             this.timeContar = new System.Windows.Forms.Timer(this.components);
             this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnCarpeta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
             // 
             // btnDetener
             // 
-            this.btnDetener.Location = new System.Drawing.Point(25, 673);
+            this.btnDetener.Location = new System.Drawing.Point(40, 695);
             this.btnDetener.Name = "btnDetener";
             this.btnDetener.Size = new System.Drawing.Size(75, 23);
             this.btnDetener.TabIndex = 4;
@@ -121,11 +122,22 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // btnCarpeta
+            // 
+            this.btnCarpeta.Location = new System.Drawing.Point(26, 632);
+            this.btnCarpeta.Name = "btnCarpeta";
+            this.btnCarpeta.Size = new System.Drawing.Size(220, 23);
+            this.btnCarpeta.TabIndex = 9;
+            this.btnCarpeta.Text = "Guardar Foto en Carpeta: ";
+            this.btnCarpeta.UseVisualStyleBackColor = true;
+            this.btnCarpeta.Click += new System.EventHandler(this.btnCarpeta_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1447, 730);
+            this.Controls.Add(this.btnCarpeta);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.pictureBoxCapturada);
             this.Controls.Add(this.label1Contar);
@@ -155,6 +167,7 @@
         private System.Windows.Forms.Timer timeContar;
         private System.Windows.Forms.PictureBox pictureBoxCapturada;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Button btnCarpeta;
     }
 }
 
