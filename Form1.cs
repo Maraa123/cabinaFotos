@@ -15,161 +15,37 @@ using System.Drawing.Imaging;
 
 using System.Drawing.Printing;
 
-namespace cabinaFotos
-{
-    public partial class Form1 : Form {
+namespace cabinaFotos{
+    public partial class Form1 : Form  {
 
-        public string Path = @"C:\Users\Mara\Pictures\CAMARA";
-        private bool hayDispositivos;
-        private FilterInfoCollection MisDispositivos;
-        private VideoCaptureDevice MiWebCam;
-        private Timer TimeContar;
-        private int tiempoRestante = 3; // 3 segundos para el contador
+        private Camara camara;
+        private FormuCamara ventanaCamara;
 
-
-        FormuCamara ventanaCamara;
         public Form1() {
-            InitializeComponent();
-            ventanaCamara = new FormuCamara();
-            // Inicializar el Timer
-            TimeContar = new Timer();
-            TimeContar.Interval = 1000; // 1000 milisegundos = 1 segundo
-            TimeContar.Tick += new EventHandler(timeContar_Tick); // Asignar evento
+      //    this.WindowState = FormWindowState.Maximized; // Para maximizar
+     //     this.FormBorderStyle = FormBorderStyle.None; // Para quitar bordes
 
-        }
+            InitializeComponent();  // Solo debe ir una vez.
+            camara = new Camara();
+            camara.CargarDispositivos();
 
-        public void CargaDispositivos() {
-            MisDispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            if (MisDispositivos.Count > 0) {
-                hayDispositivos = true;
-                for(int i = 0; i < MisDispositivos.Count; i++)
-                    comboBoxCamaras.Items.Add(MisDispositivos[i].Name.ToString());
-                comboBoxCamaras.Text = MisDispositivos[0].Name.ToString();
+            // Llenar comboBox con las cámaras disponibles
+            for (int i = 0; i < camara.ObtenerNumeroDispositivos(); i++) {
+                comboBoxCamaras.Items.Add(camara.ObtenerNombreDispositivo(i));
             }
-            else  
-                hayDispositivos=false;
-            
+            if (comboBoxCamaras.Items.Count > 0)
+                comboBoxCamaras.SelectedIndex = 0;
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-            CargaDispositivos();
-        }
-
-        private void CerrarWebCam() {
-
-            if (MiWebCam != null && MiWebCam.IsRunning) { 
-            
-                MiWebCam.SignalToStop();
-                MiWebCam = null;
-            
-            }
-        }
-
-        private void btnGrabar_Click(object sender, EventArgs e) {
-            CerrarWebCam();
-            int i = comboBoxCamaras.SelectedIndex;
-            string NombreVideo = MisDispositivos[i].MonikerString;
-            MiWebCam = new VideoCaptureDevice(NombreVideo);
-            MiWebCam.NewFrame += new NewFrameEventHandler(Capturando);
-            MiWebCam.Start();
-
-        }
-
-        private void Capturando(object sender, NewFrameEventArgs eventArgs) { 
-        Bitmap Imagen = (Bitmap)eventArgs.Frame.Clone();
-            pictureBoxVideo.Image = Imagen;
-        
-        }
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
-            CerrarWebCam();
-        }
-
-        private void btnTomarFoto_Click(object sender, EventArgs e) {
-            if (MiWebCam != null && MiWebCam.IsRunning) {
-                label1Contar.Text = "¡Preparate!";
-                tiempoRestante = 3; // Reiniciar el contador a 3 segundos
-
-                // Usar un temporizador para esperar 2 segundos antes de iniciar el contador
-                Timer preparateTimer = new Timer();
-                preparateTimer.Interval = 2000; // Esperar 2 segundos
-                preparateTimer.Tick += (s, ev) => {
-                    preparateTimer.Stop(); // Detener el temporizador de preparación
-                    preparateTimer.Dispose(); // Limpiar el recurso
-
-                    label1Contar.Text = tiempoRestante.ToString(); // Mostrar el contador
-                    TimeContar.Start(); // Iniciar el temporizador de fotos
-                };
-                preparateTimer.Start(); // Iniciar el temporizador de preparación
-
-            }
-        }
-        private void TomarFoto() {
-            if (MiWebCam != null && MiWebCam.IsRunning) {
-                pictureBoxCapturada.Image = pictureBoxVideo.Image;
-
-                // Asegurarse de que el usuario haya seleccionado una ruta
-                if (string.IsNullOrEmpty(Path))  {
-                    MessageBox.Show("Por favor, seleccione una carpeta para guardar las fotos.");
-                    return;
-                }
-
-                // Usar la ruta seleccionada y generar un nombre único para el archivo
-                string nombreArchivo = System.IO.Path.Combine(Path, "captura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg");
-
-                pictureBoxCapturada.Image.Save(nombreArchivo, ImageFormat.Jpeg);
-               // MessageBox.Show("Foto guardada en: " + nombreArchivo);
-
-            }
-        }
-
-        private string SeleccionarRutaFotos(){
-            using (FolderBrowserDialog dialog = new FolderBrowserDialog()) {
-                dialog.Description = "Seleccione la carpeta donde desea guardar las fotos";
-
-                if (dialog.ShowDialog() == DialogResult.OK) {
-                    return dialog.SelectedPath; // Devolver la ruta seleccionada
-                }
-                else{
-                    return null; // Si no se selecciona una carpeta
-                }
-            }
-        }
-
-        private void btnCarpeta_Click(object sender, EventArgs e) {
-            string nuevaRuta = SeleccionarRutaFotos();
-
-            if (!string.IsNullOrEmpty(nuevaRuta))
-            {
-                Path = nuevaRuta;
-                MessageBox.Show("Ruta seleccionada: " + Path);
-            }
-            else
-            {
-                MessageBox.Show("No se seleccionó ninguna carpeta.");
-            }
-        }
-
-        private void timeContar_Tick(object sender, EventArgs e) {
-            if (tiempoRestante > 0){
-                // Mostrar el contador en el formulario (opcional)
-                label1Contar.Text = tiempoRestante.ToString(); // Suponiendo que tienes un label llamado lblContador
-                tiempoRestante--;
-            }
-            else{
-                // Detener el temporizador cuando llega a 0
-                TimeContar.Stop();
-                label1Contar.Text = ""; // Limpiar el contador (opcional)
-
-                // Tomar la foto
-                TomarFoto();
-            }
-        }
-
-        public void ImprimirImagen()
+        private void btnIniciar_Click(object sender, EventArgs e)
         {
-            if (pictureBoxCapturada.Image != null)
-            {
+            // Crear una instancia de FormuCamara pasando la misma instancia de la clase Camara
+            ventanaCamara = new FormuCamara();
+            ventanaCamara.ShowDialog(); // Mostrar el FormuCamara
+        }
+
+        public void ImprimirImagen()  {
+            if (pictureBoxCapturada.Image != null)  {
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler(ImprimirPagina);
                 PrintDialog printDialog = new PrintDialog();
@@ -183,36 +59,52 @@ namespace cabinaFotos
                     pd.Print(); // Imprimir la imagen
                 }
             }
-            else
-            {
+            else {
                 MessageBox.Show("No hay imagen capturada para imprimir.");
             }
         }
 
-        private void ImprimirPagina(object sender, PrintPageEventArgs e)
-        {
-            if (pictureBoxCapturada.Image != null)
-            {
+        private void ImprimirPagina(object sender, PrintPageEventArgs e){
+            if (pictureBoxCapturada.Image != null) {
                 // Obtener la imagen a imprimir
                 Image imagenAImprimir = pictureBoxCapturada.Image;
 
+                // Ajustar la imagen al tamaño de la página
+                Rectangle m = e.MarginBounds;
+
+                // Escalar la imagen si es necesario
+                if ((double)imagenAImprimir.Width / (double)imagenAImprimir.Height > (double)m.Width / (double)m.Height){
+                    m.Height = (int)((double)imagenAImprimir.Height / (double)imagenAImprimir.Width * (double)m.Width);
+                }
+                else{
+                    m.Width = (int)((double)imagenAImprimir.Width / (double)imagenAImprimir.Height * (double)m.Height);
+                }
                 // Dibujar la imagen en la página de impresión
-                e.Graphics.DrawImage(imagenAImprimir, new Point(0, 0));
+                e.Graphics.DrawImage(imagenAImprimir, m);
             }
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
+        private void btnTomarFoto_Click_1(object sender, EventArgs e)  {
+            camara.TomarFoto(pictureBoxVideo, pictureBoxCapturada);
+        }
+
+        private void btnCarpeta_Click_1(object sender, EventArgs e){
+            string nuevaRuta = camara.SeleccionarRutaFotos();
+            if (!string.IsNullOrEmpty(nuevaRuta))
+            {
+                camara.EstablecerRuta(nuevaRuta);
+            }
+        }
+        private void btnGrabar_Click_1(object sender, EventArgs e) {
+            camara.IniciarCamara(comboBoxCamaras.SelectedIndex, pictureBoxVideo);
+        }
+
+        private void btnImprimir_Click_1(object sender, EventArgs e)  {
             ImprimirImagen();
         }
 
-       
-        private void btnIniciar_Click(object sender, EventArgs e)
-        {
-            ventanaCamara.ShowDialog();
-
-
-
+        private void Form1_FormClosed_1(object sender, FormClosedEventArgs e) {
+            camara.CerrarWebCam(); // Llama a la función de la clase Camara
         }
     }
 }

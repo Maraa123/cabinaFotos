@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +14,9 @@ namespace cabinaFotos
 {
     public partial class FormuCamara : Form
     {
-        public FormuCamara()
-        {
-            InitializeComponent();
-        }
+        private Camara camara;
+        public Action<Bitmap> ImagenCapturadaCallback; // Delegado para enviar la imagen capturada
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
+       
     }
 }
