@@ -111,7 +111,7 @@
             // 
             // pictureBoxCapturada3
             // 
-            this.pictureBoxCapturada3.Location = new System.Drawing.Point(1052, 482);
+            this.pictureBoxCapturada3.Location = new System.Drawing.Point(1053, 599);
             this.pictureBoxCapturada3.Name = "pictureBoxCapturada3";
             this.pictureBoxCapturada3.Size = new System.Drawing.Size(245, 151);
             this.pictureBoxCapturada3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +120,7 @@
             // 
             // pictureBoxCapturada2
             // 
-            this.pictureBoxCapturada2.Location = new System.Drawing.Point(1052, 270);
+            this.pictureBoxCapturada2.Location = new System.Drawing.Point(1053, 336);
             this.pictureBoxCapturada2.Name = "pictureBoxCapturada2";
             this.pictureBoxCapturada2.Size = new System.Drawing.Size(245, 151);
             this.pictureBoxCapturada2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -129,7 +129,7 @@
             // 
             // pictureBoxCapturada
             // 
-            this.pictureBoxCapturada.Location = new System.Drawing.Point(1052, 78);
+            this.pictureBoxCapturada.Location = new System.Drawing.Point(1053, 104);
             this.pictureBoxCapturada.Name = "pictureBoxCapturada";
             this.pictureBoxCapturada.Size = new System.Drawing.Size(245, 151);
             this.pictureBoxCapturada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -138,7 +138,7 @@
             // 
             // pictureBoxVideo
             // 
-            this.pictureBoxVideo.Location = new System.Drawing.Point(319, 78);
+            this.pictureBoxVideo.Location = new System.Drawing.Point(328, 104);
             this.pictureBoxVideo.Name = "pictureBoxVideo";
             this.pictureBoxVideo.Size = new System.Drawing.Size(701, 646);
             this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,7 +151,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(533, 324);
+            this.label1.Location = new System.Drawing.Point(611, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 108);
             this.label1.TabIndex = 19;
