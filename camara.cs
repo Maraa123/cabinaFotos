@@ -15,18 +15,14 @@ namespace cabinaFotos
     {
         private FilterInfoCollection MisDispositivos;
         private VideoCaptureDevice MiWebCam;
-        private Timer TimeContar;
-        private int tiempoRestante = 3; // 3 segundos para el contador
         public string Path { get; private set; } = @"C:\Users\Mara\Pictures\CAMARA"; // Ruta predeterminada
         private bool hayDispositivos = false;
+        private Timer timeContar; // Temporizador para la cuenta regresiva
+        private int tiempoRestante = 3; // Tiempo de cuenta regresiva
+        public event Action FotoTomada; // Evento para notificar que la foto fue tomada
 
-        public Camara()
-        {
-            // Inicializar el Timer
-            TimeContar = new Timer();
-            TimeContar.Interval = 1000; // 1000 milisegundos = 1 segundo
-            TimeContar.Tick += timeContar_Tick; // Asignar evento del Timer
-        }
+
+    
 
         // Cargar dispositivos de cámara
         public void CargarDispositivos()
@@ -75,12 +71,51 @@ namespace cabinaFotos
             pictureBoxVideo.Image = imagen; // Mostrar en el PictureBox
         }
 
+        public void IniciarContador(Label labelContador, PictureBox pictureBoxVideo, PictureBox pictureBoxCapturada)
+        {
+            if (MiWebCam != null && MiWebCam.IsRunning)
+            {
+                labelContador.Text = "¡Preparate!";
+                tiempoRestante = 3; // Reiniciar el contador a 3 segundos
+
+                Timer preparateTimer = new Timer();
+                preparateTimer.Interval = 2000; // Esperar 2 segundos
+                preparateTimer.Tick += (s, ev) =>
+                {
+                    preparateTimer.Stop();
+                    preparateTimer.Dispose();
+
+                    labelContador.Text = tiempoRestante.ToString();
+                    timeContar = new Timer(); // Inicializar el temporizador de cuenta regresiva
+                    timeContar.Interval = 1000; // 1 segundo
+                    timeContar.Tick += (s2, ev2) => {
+                        if (tiempoRestante > 0)
+                        {
+                            labelContador.Text = tiempoRestante.ToString();
+                            tiempoRestante--;
+                        }
+                        else
+                        {
+                            timeContar.Stop(); // Detener el temporizador
+                            TomarFoto(pictureBoxVideo, pictureBoxCapturada); // Tomar la foto
+                            FotoTomada?.Invoke(); // Notificar que la foto fue tomada
+                            labelContador.Text = ""; // Limpiar el label (opcional)
+                        }
+                    };
+                    timeContar.Start(); // Iniciar el temporizador
+                };
+                preparateTimer.Start(); // Iniciar el temporizador de preparación
+            }
+        }
+
         // Método para tomar la foto y mostrarla en otro PictureBox
         public void TomarFoto(PictureBox pictureBoxVideo, PictureBox pictureBoxCapturada)
         {
-            if (MiWebCam != null && MiWebCam.IsRunning && pictureBoxVideo.Image != null){
+            if (MiWebCam != null && MiWebCam.IsRunning && pictureBoxVideo.Image != null)
+            {
                 pictureBoxCapturada.Image = (Bitmap)pictureBoxVideo.Image.Clone();
-                     // Asegurarse de que el usuario haya seleccionado una ruta
+
+                // Asegurarse de que el usuario haya seleccionado una ruta
                 if (string.IsNullOrEmpty(Path))
                 {
                     MessageBox.Show("Por favor, seleccione una carpeta para guardar las fotos.");
@@ -91,39 +126,6 @@ namespace cabinaFotos
                 string nombreArchivo = System.IO.Path.Combine(Path, "captura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg");
                 pictureBoxCapturada.Image.Save(nombreArchivo, ImageFormat.Jpeg);
                 MessageBox.Show("Foto guardada en: " + nombreArchivo);
-            }
-        }
-
-        // Método para mostrar un temporizador antes de tomar la foto
-        public void IniciarContador(Label labelContador, PictureBox pictureBoxVideo, PictureBox pictureBoxCapturada){
-            if (MiWebCam != null && MiWebCam.IsRunning)
-            {
-                labelContador.Text = "¡Preparate!";
-                tiempoRestante = 3; // Reiniciar el contador a 3 segundos
-
-                Timer preparateTimer = new Timer();
-                preparateTimer.Interval = 2000; // Esperar 2 segundos
-                preparateTimer.Tick += (s, ev) => {
-                    preparateTimer.Stop();
-                    preparateTimer.Dispose();
-
-                    labelContador.Text = tiempoRestante.ToString();
-                    TimeContar.Start(); // Iniciar el temporizador de fotos
-                };
-                preparateTimer.Start();
-            }
-        }
-
-        // Evento del temporizador que toma la foto cuando llega a 0
-        private void timeContar_Tick(object sender, EventArgs e) {
-            if (tiempoRestante > 0)
-            {
-                tiempoRestante--;
-            }
-            else
-            {
-                TimeContar.Stop();
-                // Aquí debes tomar la foto
             }
         }
 

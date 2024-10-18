@@ -85,7 +85,8 @@ namespace cabinaFotos{
         }
 
         private void btnTomarFoto_Click_1(object sender, EventArgs e)  {
-            camara.TomarFoto(pictureBoxVideo, pictureBoxCapturada);
+            camara.IniciarContador(label1, pictureBoxVideo, pictureBoxCapturada);
+
         }
 
         private void btnCarpeta_Click_1(object sender, EventArgs e){
