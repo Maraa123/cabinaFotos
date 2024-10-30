@@ -91,102 +91,103 @@ namespace cabinaFotos
             e.PageSettings.Landscape = true;
 
             // Definir tamaño A6 en puntos (96 puntos por pulgada)
-            float a5WidthPoints = 4.13f * 96;
-            float a5HeightPoints = 5.83f * 96;
+            float a5WidthPoints = 5.83f * 96;
+            float a5HeightPoints = 4.13f * 96;
 
-            // Escalar la imagen del GroupBox al tamaño A5
+            // Escalar la imagen del GroupBox al tamaño A6
             RectangleF printArea = new RectangleF(0, 0, a5WidthPoints, a5HeightPoints);
 
             // Dibujar la imagen en la página de impresión
             e.Graphics.DrawImage(imagenAImprimir, printArea);
         }
 
-
-
-        public void ImprimirImagen()
-        {
-            if (pictureBoxCapturada.Image != null)
-            {
-                PrintDocument pd = new PrintDocument();
-                pd.PrintPage += new PrintPageEventHandler(ImprimirPagina);
-                PrintDialog printDialog = new PrintDialog();
-
-                // Asignar el documento de impresión
-                printDialog.Document = pd;
-
-                // Mostrar el cuadro de diálogo de impresión
-                if (printDialog.ShowDialog() == DialogResult.OK)
-                {
-                    pd.Print(); // Imprimir la imagen
-                }
-            }
-            else
-            {
-                MessageBox.Show("No hay imagen capturada para imprimir.");
-            }
-        }
-
-        private void ImprimirPagina(object sender, PrintPageEventArgs e)
-        {
-            if (pictureBoxCapturada.Image != null)
-            {
-                // Obtener la imagen a imprimir
-                Image imagenAImprimir = pictureBoxCapturada.Image;
-
-                // Ajustar la imagen al tamaño de la página
-                Rectangle m = e.MarginBounds;
-
-                // Escalar la imagen si es necesario
-                if ((double)imagenAImprimir.Width / (double)imagenAImprimir.Height > (double)m.Width / (double)m.Height)
-                {
-                    m.Height = (int)((double)imagenAImprimir.Height / (double)imagenAImprimir.Width * (double)m.Width);
-                }
-                else
-                {
-                    m.Width = (int)((double)imagenAImprimir.Width / (double)imagenAImprimir.Height * (double)m.Height);
-                }
-                // Dibujar la imagen en la página de impresión
-                e.Graphics.DrawImage(imagenAImprimir, m);
-            }
-        }
-
-     
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            ImprimirGroupBox();
-        }
-
-
         private void btnTomarFoto_Click(object sender, EventArgs e)
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
             camara.IniciarContador(label1, pictureBoxVideo, pictureBoxes);
 
-
         }
-       
-        private void btnCarpeta_Click(object sender, EventArgs e)
-        {
-            string nuevaRuta = camara.SeleccionarRutaFotos();
-            if (!string.IsNullOrEmpty(nuevaRuta))
-            {
-                camara.EstablecerRuta(nuevaRuta);
-            }
-        }
-
-
-        private void btnGrabar_Click(object sender, EventArgs e)
-        {
-            camara.IniciarCamara(comboBoxCamaras.SelectedIndex, pictureBoxVideo);
-        }
-
 
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             camara.CerrarWebCam(); // Llama a la función de la clase Camara
         }
 
-       
+        private void pLANTILLAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fotoDeCarpetaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string nuevaRuta = camara.SeleccionarRutaFotos();
+            if (!string.IsNullOrEmpty(nuevaRuta)) 
+            {
+                camara.EstablecerRuta(nuevaRuta);
+            }
+        }
+
+        private void grabarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            camara.IniciarCamara(comboBoxCamaras.SelectedIndex, pictureBoxVideo);
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImprimirGroupBox();
+        }
+
+        private void fondoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Crear y configurar el cuadro de diálogo para seleccionar archivos
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp";
+            openFileDialog.Title = "Seleccione una Imagen";
+
+            // Mostrar el cuadro de diálogo y verificar que el usuario haya seleccionado un archivo
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Cargar la imagen seleccionada
+                Image fondoImagen = Image.FromFile(openFileDialog.FileName);
+
+                // Establecer la imagen como fondo del GroupBox
+                groupBox1.BackgroundImage = fondoImagen;
+                groupBox1.BackgroundImageLayout = ImageLayout.Stretch; // Ajustar la imagen al tamaño del GroupBox
+            }
+
+
+
+        }
+
+        private void logoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp";
+            openFileDialog.Title = "Seleccione una Imagen";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Image fondoImagen = Image.FromFile(openFileDialog.FileName);
+
+                pictureBox1.BackgroundImage = fondoImagen;
+                pictureBox1.BackgroundImageLayout = ImageLayout.Stretch; 
+            }
+        }
+
+        private void fondoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Crear el cuadro de diálogo para seleccionar archivos
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp";
+            openFileDialog.Title = "Seleccione una Imagen para el Formulario";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+                Image fondoImagen = Image.FromFile(openFileDialog.FileName);
+                this.BackgroundImage = fondoImagen;
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+        }
     }
 }

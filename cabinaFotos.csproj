@@ -112,5 +112,29 @@
   <ItemGroup>
     <None Include="Resources\rb_2148490649.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carpeta1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-rec1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprimir1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagen %282%291.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

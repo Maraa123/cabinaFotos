@@ -46,7 +46,7 @@ namespace cabinaFotos
         // Iniciar la cámara
         public void IniciarCamara(int indexDispositivo, PictureBox pictureBoxVideo)
         {
-            CerrarWebCam(); // Cerrar si ya hay una cámara corriendo
+            CerrarWebCam();
 
             string nombreVideo = MisDispositivos[indexDispositivo].MonikerString;
             MiWebCam = new VideoCaptureDevice(nombreVideo);
@@ -68,7 +68,7 @@ namespace cabinaFotos
         private void CapturandoFrame(object sender, NewFrameEventArgs eventArgs, PictureBox pictureBoxVideo)
         {
             Bitmap imagen = (Bitmap)eventArgs.Frame.Clone();
-            pictureBoxVideo.Image = imagen; // Mostrar en el PictureBox
+            pictureBoxVideo.Image = imagen; 
         }
 
 
