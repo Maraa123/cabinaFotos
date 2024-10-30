@@ -25,8 +25,8 @@ namespace cabinaFotos
 
         public Form1()
         {
-            //    this.WindowState = FormWindowState.Maximized; // Para maximizar
-            //     this.FormBorderStyle = FormBorderStyle.None; // Para quitar bordes
+                this.WindowState = FormWindowState.Maximized; // Para maximizar
+                 this.FormBorderStyle = FormBorderStyle.None; // Para quitar bordes
 
             InitializeComponent();  // Solo debe ir una vez.
             camara = new Camara();
@@ -174,5 +174,6 @@ namespace cabinaFotos
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
         }
+
     }
 }
