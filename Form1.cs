@@ -51,18 +51,10 @@ namespace cabinaFotos
 
         //imprimir 
 
-        // Método para capturar el contenido de un control 
-        private Bitmap CapturarControl(Control control)
-        {
-            Bitmap bmp = new Bitmap(control.Width, control.Height);
-            control.DrawToBitmap(bmp, new Rectangle(0, 0, control.Width, control.Height));
-            return bmp;
-        }
-
         public void ImprimirGroupBox()
         {
             // Capturar la imagen del GroupBox
-            Bitmap groupBoxImagen = CapturarControl(groupBox1);
+            Bitmap groupBoxImagen = camara.CapturarControl(groupBox1);
 
             if (groupBoxImagen != null)
             {
@@ -105,17 +97,12 @@ namespace cabinaFotos
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
             camara.IniciarContador(label1, pictureBoxVideo, pictureBoxes);
-
+      //      camara.GuardarGroup(groupBox1);
         }
 
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             camara.CerrarWebCam(); // Llama a la función de la clase Camara
-        }
-
-        private void pLANTILLAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void fotoDeCarpetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -154,8 +141,6 @@ namespace cabinaFotos
                 groupBox1.BackgroundImage = fondoImagen;
                 groupBox1.BackgroundImageLayout = ImageLayout.Stretch; // Ajustar la imagen al tamaño del GroupBox
             }
-
-
 
         }
 

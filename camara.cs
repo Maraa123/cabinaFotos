@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace cabinaFotos
 {
@@ -146,8 +147,11 @@ namespace cabinaFotos
         // Método para tomar la foto y mostrarla en el PictureBox especificado
         public void TomarFoto(PictureBox pictureBoxVideo, PictureBox pictureBoxCapturada)
         {
+
+
             if (MiWebCam != null && MiWebCam.IsRunning && pictureBoxVideo.Image != null)
             {
+                
                 pictureBoxCapturada.Image = (Bitmap)pictureBoxVideo.Image.Clone();
 
                 // Asegurarse de que el usuario haya seleccionado una ruta
@@ -162,6 +166,30 @@ namespace cabinaFotos
                 pictureBoxCapturada.Image.Save(nombreArchivo, ImageFormat.Jpeg);
 
             }
+        }
+
+     /*   public void GuardarGroup(GroupBox groupBox1) {
+
+            // Asegurarse de que el usuario haya seleccionado una ruta
+            if (string.IsNullOrEmpty(Path))
+            {
+                MessageBox.Show("Por favor, seleccione una carpeta para guardar las fotos.");
+                return;
+            }
+
+            // Guardar la imagen capturada en la ruta seleccionada
+            string nombreArchivo = System.IO.Path.Combine(Path, "captura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg");
+            groupBox1.Image.Save(nombreArchivo, ImageFormat.Jpeg);
+
+
+        } */
+
+        // Método para capturar el contenido de un control 
+        public Bitmap CapturarControl(Control control)
+        {
+            Bitmap bmp = new Bitmap(control.Width, control.Height);
+            control.DrawToBitmap(bmp, new Rectangle(0, 0, control.Width, control.Height));
+            return bmp;
         }
 
 
