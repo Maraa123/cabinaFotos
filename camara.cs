@@ -22,7 +22,7 @@ namespace cabinaFotos
         public event Action FotoTomada; // Evento para notificar que la foto fue tomada
 
 
-    
+
 
         // Cargar dispositivos de cámara
         public void CargarDispositivos()
@@ -160,13 +160,9 @@ namespace cabinaFotos
                 // Guardar la imagen capturada en la ruta seleccionada
                 string nombreArchivo = System.IO.Path.Combine(Path, "captura_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg");
                 pictureBoxCapturada.Image.Save(nombreArchivo, ImageFormat.Jpeg);
-       
+
             }
         }
-
-
-
-
 
 
 
@@ -183,7 +179,7 @@ namespace cabinaFotos
                 }
                 else
                 {
-                    return null; // Si no se selecciona una carpeta
+                    return null;
                 }
             }
         }

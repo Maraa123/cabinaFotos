@@ -29,121 +29,90 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.comboBoxCamaras = new System.Windows.Forms.ComboBox();
-            this.btnIniciar = new System.Windows.Forms.Button();
-            this.btnTomarFoto = new System.Windows.Forms.Button();
             this.timeContar = new System.Windows.Forms.Timer(this.components);
-            this.btnGrabar = new System.Windows.Forms.Button();
-            this.btnCarpeta = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
             this.pictureBoxCapturada3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCapturada2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
-            this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
+            this.btnCarpeta = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnTomarFoto = new System.Windows.Forms.Button();
+            this.btnIniciar = new System.Windows.Forms.Button();
+            this.comboBoxCamaras = new System.Windows.Forms.ComboBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Location = new System.Drawing.Point(67, 270);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
-            this.btnImprimir.TabIndex = 2;
-            this.btnImprimir.Text = "IMPRIMIR";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
-            // 
-            // comboBoxCamaras
-            // 
-            this.comboBoxCamaras.FormattingEnabled = true;
-            this.comboBoxCamaras.Location = new System.Drawing.Point(25, 33);
-            this.comboBoxCamaras.Name = "comboBoxCamaras";
-            this.comboBoxCamaras.Size = new System.Drawing.Size(207, 21);
-            this.comboBoxCamaras.TabIndex = 3;
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.Location = new System.Drawing.Point(67, 336);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(75, 23);
-            this.btnIniciar.TabIndex = 4;
-            this.btnIniciar.Text = "INICIAR";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // btnTomarFoto
-            // 
-            this.btnTomarFoto.Location = new System.Drawing.Point(67, 196);
-            this.btnTomarFoto.Name = "btnTomarFoto";
-            this.btnTomarFoto.Size = new System.Drawing.Size(75, 23);
-            this.btnTomarFoto.TabIndex = 5;
-            this.btnTomarFoto.Text = "tomar foto";
-            this.btnTomarFoto.UseVisualStyleBackColor = true;
-            this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click_1);
             // 
             // timeContar
             // 
             this.timeContar.Interval = 1000;
             // 
-            // btnGrabar
+            // groupBox1
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(67, 127);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(88, 21);
-            this.btnGrabar.TabIndex = 8;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click_1);
+            this.groupBox1.BackgroundImage = global::cabinaFotos.Properties.Resources._2149876014__1_;
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pictureBoxCapturada);
+            this.groupBox1.Controls.Add(this.pictureBoxCapturada3);
+            this.groupBox1.Controls.Add(this.pictureBoxCapturada2);
+            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.groupBox1.Location = new System.Drawing.Point(1108, 180);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(748, 497);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
             // 
-            // btnCarpeta
+            // pictureBox1
             // 
-            this.btnCarpeta.Location = new System.Drawing.Point(25, 78);
-            this.btnCarpeta.Name = "btnCarpeta";
-            this.btnCarpeta.Size = new System.Drawing.Size(220, 23);
-            this.btnCarpeta.TabIndex = 9;
-            this.btnCarpeta.Text = "Guardar Foto en Carpeta: ";
-            this.btnCarpeta.UseVisualStyleBackColor = true;
-            this.btnCarpeta.Click += new System.EventHandler(this.btnCarpeta_Click_1);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::cabinaFotos.Properties.Resources.rb_2148490649;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(412, 281);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(270, 171);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBoxCapturada
+            // 
+            this.pictureBoxCapturada.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada.Location = new System.Drawing.Point(47, 37);
+            this.pictureBoxCapturada.Name = "pictureBoxCapturada";
+            this.pictureBoxCapturada.Size = new System.Drawing.Size(279, 171);
+            this.pictureBoxCapturada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCapturada.TabIndex = 21;
+            this.pictureBoxCapturada.TabStop = false;
             // 
             // pictureBoxCapturada3
             // 
-            this.pictureBoxCapturada3.Location = new System.Drawing.Point(1053, 599);
+            this.pictureBoxCapturada3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada3.Location = new System.Drawing.Point(47, 281);
             this.pictureBoxCapturada3.Name = "pictureBoxCapturada3";
-            this.pictureBoxCapturada3.Size = new System.Drawing.Size(245, 151);
+            this.pictureBoxCapturada3.Size = new System.Drawing.Size(279, 171);
             this.pictureBoxCapturada3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada3.TabIndex = 17;
+            this.pictureBoxCapturada3.TabIndex = 23;
             this.pictureBoxCapturada3.TabStop = false;
             // 
             // pictureBoxCapturada2
             // 
-            this.pictureBoxCapturada2.Location = new System.Drawing.Point(1053, 336);
+            this.pictureBoxCapturada2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada2.Location = new System.Drawing.Point(412, 37);
             this.pictureBoxCapturada2.Name = "pictureBoxCapturada2";
-            this.pictureBoxCapturada2.Size = new System.Drawing.Size(245, 151);
+            this.pictureBoxCapturada2.Size = new System.Drawing.Size(270, 171);
             this.pictureBoxCapturada2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada2.TabIndex = 16;
+            this.pictureBoxCapturada2.TabIndex = 22;
             this.pictureBoxCapturada2.TabStop = false;
-            // 
-            // pictureBoxCapturada
-            // 
-            this.pictureBoxCapturada.Location = new System.Drawing.Point(1053, 104);
-            this.pictureBoxCapturada.Name = "pictureBoxCapturada";
-            this.pictureBoxCapturada.Size = new System.Drawing.Size(245, 151);
-            this.pictureBoxCapturada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada.TabIndex = 15;
-            this.pictureBoxCapturada.TabStop = false;
-            // 
-            // pictureBoxVideo
-            // 
-            this.pictureBoxVideo.Location = new System.Drawing.Point(328, 104);
-            this.pictureBoxVideo.Name = "pictureBoxVideo";
-            this.pictureBoxVideo.Size = new System.Drawing.Size(701, 646);
-            this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxVideo.TabIndex = 18;
-            this.pictureBoxVideo.TabStop = false;
             // 
             // label1
             // 
@@ -151,22 +120,87 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(611, 6);
+            this.label1.Location = new System.Drawing.Point(598, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 108);
-            this.label1.TabIndex = 19;
+            this.label1.TabIndex = 28;
+            // 
+            // pictureBoxVideo
+            // 
+            this.pictureBoxVideo.Location = new System.Drawing.Point(315, 106);
+            this.pictureBoxVideo.Name = "pictureBoxVideo";
+            this.pictureBoxVideo.Size = new System.Drawing.Size(701, 646);
+            this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxVideo.TabIndex = 27;
+            this.pictureBoxVideo.TabStop = false;
+            // 
+            // btnCarpeta
+            // 
+            this.btnCarpeta.Location = new System.Drawing.Point(12, 80);
+            this.btnCarpeta.Name = "btnCarpeta";
+            this.btnCarpeta.Size = new System.Drawing.Size(220, 23);
+            this.btnCarpeta.TabIndex = 26;
+            this.btnCarpeta.Text = "Guardar Foto en Carpeta: ";
+            this.btnCarpeta.UseVisualStyleBackColor = true;
+            this.btnCarpeta.Click += new System.EventHandler(this.btnCarpeta_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(54, 129);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(88, 21);
+            this.btnGrabar.TabIndex = 25;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // btnTomarFoto
+            // 
+            this.btnTomarFoto.Location = new System.Drawing.Point(54, 198);
+            this.btnTomarFoto.Name = "btnTomarFoto";
+            this.btnTomarFoto.Size = new System.Drawing.Size(75, 23);
+            this.btnTomarFoto.TabIndex = 24;
+            this.btnTomarFoto.Text = "tomar foto";
+            this.btnTomarFoto.UseVisualStyleBackColor = true;
+            this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
+            // 
+            // btnIniciar
+            // 
+            this.btnIniciar.Location = new System.Drawing.Point(54, 338);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(75, 23);
+            this.btnIniciar.TabIndex = 23;
+            this.btnIniciar.Text = "INICIAR";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click_1);
+            // 
+            // comboBoxCamaras
+            // 
+            this.comboBoxCamaras.FormattingEnabled = true;
+            this.comboBoxCamaras.Location = new System.Drawing.Point(12, 35);
+            this.comboBoxCamaras.Name = "comboBoxCamaras";
+            this.comboBoxCamaras.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxCamaras.TabIndex = 22;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(54, 272);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 21;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1330, 762);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxVideo);
-            this.Controls.Add(this.pictureBoxCapturada3);
-            this.Controls.Add(this.pictureBoxCapturada2);
-            this.Controls.Add(this.pictureBoxCapturada);
             this.Controls.Add(this.btnCarpeta);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnTomarFoto);
@@ -176,9 +210,11 @@
             this.Name = "Form1";
             this.Text = "Cabina de Fotos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed_1);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,18 +222,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.ComboBox comboBoxCamaras;
-        private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Button btnTomarFoto;
         private System.Windows.Forms.Timer timeContar;
-        private System.Windows.Forms.Button btnGrabar;
-        private System.Windows.Forms.Button btnCarpeta;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCapturada;
         private System.Windows.Forms.PictureBox pictureBoxCapturada3;
         private System.Windows.Forms.PictureBox pictureBoxCapturada2;
-        private System.Windows.Forms.PictureBox pictureBoxCapturada;
-        private System.Windows.Forms.PictureBox pictureBoxVideo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBoxVideo;
+        private System.Windows.Forms.Button btnCarpeta;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Button btnTomarFoto;
+        private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.ComboBox comboBoxCamaras;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
 
