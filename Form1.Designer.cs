@@ -49,6 +49,7 @@
             this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTomarFoto = new System.Windows.Forms.Button();
+            this.expandirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,7 +86,8 @@
             this.imprimirToolStripMenuItem,
             this.pLANTILLAToolStripMenuItem1,
             this.fondoToolStripMenuItem,
-            this.logoToolStripMenuItem});
+            this.logoToolStripMenuItem,
+            this.expandirToolStripMenuItem});
             this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
@@ -257,11 +259,17 @@
             this.btnTomarFoto.UseVisualStyleBackColor = true;
             this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
             // 
+            // expandirToolStripMenuItem
+            // 
+            this.expandirToolStripMenuItem.Name = "expandirToolStripMenuItem";
+            this.expandirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.expandirToolStripMenuItem.Text = "expandir";
+            this.expandirToolStripMenuItem.Click += new System.EventHandler(this.expandirToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::cabinaFotos.Properties.Resources._23181716_6688546;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.label1);
@@ -307,6 +315,7 @@
         private System.Windows.Forms.ToolStripMenuItem logoToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTomarFoto;
+        private System.Windows.Forms.ToolStripMenuItem expandirToolStripMenuItem;
     }
 }
 

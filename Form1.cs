@@ -25,8 +25,6 @@ namespace cabinaFotos
 
         public Form1()
         {
-                this.WindowState = FormWindowState.Maximized; // Para maximizar
-                 this.FormBorderStyle = FormBorderStyle.None; // Para quitar bordes
 
             InitializeComponent();  // Solo debe ir una vez.
             camara = new Camara();
@@ -161,19 +159,30 @@ namespace cabinaFotos
 
         private void fondoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            // Crear el cuadro de diálogo para seleccionar archivos
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Archivos de Imagen|*.jpg;*.jpeg;*.png;*.bmp";
             openFileDialog.Title = "Seleccione una Imagen para el Formulario";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                
                 Image fondoImagen = Image.FromFile(openFileDialog.FileName);
                 this.BackgroundImage = fondoImagen;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
             }
         }
 
+        private void expandirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal; 
+                this.FormBorderStyle = FormBorderStyle.Sizable; 
+            } 
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.None; 
+                this.WindowState = FormWindowState.Maximized; 
+            }
+        }
     }
 }
