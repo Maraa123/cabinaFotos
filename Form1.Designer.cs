@@ -41,6 +41,7 @@
             this.pLANTILLAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expandirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,6 @@
             this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTomarFoto = new System.Windows.Forms.Button();
-            this.expandirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,6 +100,7 @@
             this.pLANTILLAToolStripMenuItem.Name = "pLANTILLAToolStripMenuItem";
             this.pLANTILLAToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.pLANTILLAToolStripMenuItem.Text = "GENERAL";
+//            this.pLANTILLAToolStripMenuItem.Click += new System.EventHandler(this.pLANTILLAToolStripMenuItem_Click);
             // 
             // fondoToolStripMenuItem1
             // 
@@ -121,7 +122,6 @@
             // 
             this.comboBoxCamaras.Name = "comboBoxCamaras";
             this.comboBoxCamaras.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxCamaras.Click += new System.EventHandler(this.comboBoxCamaras_Click);
             // 
             // grabarToolStripMenuItem
             // 
@@ -162,6 +162,13 @@
             this.logoToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.logoToolStripMenuItem.Text = "Logo";
             this.logoToolStripMenuItem.Click += new System.EventHandler(this.logoToolStripMenuItem_Click);
+            // 
+            // expandirToolStripMenuItem
+            // 
+            this.expandirToolStripMenuItem.Name = "expandirToolStripMenuItem";
+            this.expandirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.expandirToolStripMenuItem.Text = "expandir";
+            this.expandirToolStripMenuItem.Click += new System.EventHandler(this.expandirToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -259,13 +266,6 @@
             this.btnTomarFoto.TabIndex = 24;
             this.btnTomarFoto.UseVisualStyleBackColor = true;
             this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
-            // 
-            // expandirToolStripMenuItem
-            // 
-            this.expandirToolStripMenuItem.Name = "expandirToolStripMenuItem";
-            this.expandirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.expandirToolStripMenuItem.Text = "expandir";
-            this.expandirToolStripMenuItem.Click += new System.EventHandler(this.expandirToolStripMenuItem_Click);
             // 
             // Form1
             // 

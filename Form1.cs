@@ -22,15 +22,15 @@ namespace cabinaFotos
 
         private Camara camara;
         private FormuCamara ventanaCamara;
-
+        private ImprimirGuardar imprimirGuardar = new ImprimirGuardar();
         public Form1()
         {
 
-            InitializeComponent();  // Solo debe ir una vez.
+            InitializeComponent();  
             camara = new Camara();
             camara.CargarDispositivos();
 
-            // Llenar comboBox con las cámaras disponibles
+           
             for (int i = 0; i < camara.ObtenerNumeroDispositivos(); i++)
             {
                 comboBoxCamaras.Items.Add(camara.ObtenerNombreDispositivo(i));
@@ -41,61 +41,19 @@ namespace cabinaFotos
 
         private void btnIniciar_Click_1(object sender, EventArgs e)
         {
-            // Crear una instancia de FormuCamara pasando la misma instancia de la clase Camara
             ventanaCamara = new FormuCamara();
             ventanaCamara.ShowDialog(); 
 
         }
 
-        //imprimir 
-
-        public void ImprimirGroupBox()
-        {
-            // Capturar la imagen del GroupBox
-            Bitmap groupBoxImagen = camara.CapturarControl(groupBox1);
-
-            if (groupBoxImagen != null)
-            {
-                PrintDocument pd = new PrintDocument();
-                pd.PrintPage += (sender, e) => ImprimirPagina(sender, e, groupBoxImagen);
-                PrintDialog printDialog = new PrintDialog();
-
-                // Asignar el documento de impresión
-                printDialog.Document = pd;
-
-                // Mostrar el cuadro de diálogo de impresión
-                if (printDialog.ShowDialog() == DialogResult.OK)
-                {
-                    pd.Print(); // Imprimir el contenido capturado del GroupBox
-                }
-            }
-            else
-            {
-                MessageBox.Show("No hay contenido en el GroupBox para imprimir.");
-            }
-        }
-
-        // Método que maneja la impresión
-        private void ImprimirPagina(object sender, PrintPageEventArgs e, Bitmap imagenAImprimir)
-        {
-            e.PageSettings.Landscape = true;
-
-            // Definir tamaño A6 en puntos (96 puntos por pulgada)
-            float a5WidthPoints = 5.83f * 96;
-            float a5HeightPoints = 4.13f * 96;
-
-            // Escalar la imagen del GroupBox al tamaño A6
-            RectangleF printArea = new RectangleF(0, 0, a5WidthPoints, a5HeightPoints);
-
-            // Dibujar la imagen en la página de impresión
-            e.Graphics.DrawImage(imagenAImprimir, printArea);
-        }
+        
 
         private void btnTomarFoto_Click(object sender, EventArgs e)
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
             camara.IniciarContador(label1, pictureBoxVideo, pictureBoxes);
-      //      camara.GuardarGroup(groupBox1);
+            imprimirGuardar.GuardarGroupBoxEnCarpeta(groupBox1);  // Guarda `groupBox1` en la ruta especificada en `Path`.
+
         }
 
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
@@ -105,10 +63,10 @@ namespace cabinaFotos
 
         private void fotoDeCarpetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string nuevaRuta = camara.SeleccionarRutaFotos();
+            string nuevaRuta = imprimirGuardar.SeleccionarRutaFotos();
             if (!string.IsNullOrEmpty(nuevaRuta)) 
             {
-                camara.EstablecerRuta(nuevaRuta);
+                imprimirGuardar.EstablecerRuta(nuevaRuta);
             }
         }
 
@@ -119,7 +77,7 @@ namespace cabinaFotos
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ImprimirGroupBox();
+            imprimirGuardar.ImprimirGroupBox(groupBox1);
         }
 
         private void fondoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,6 +126,20 @@ namespace cabinaFotos
                 Image fondoImagen = Image.FromFile(openFileDialog.FileName);
                 this.BackgroundImage = fondoImagen;
                 this.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+        }
+
+        private void expandirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal; 
+                this.FormBorderStyle = FormBorderStyle.Sizable; 
+            } 
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.None; 
+                this.WindowState = FormWindowState.Maximized; 
             }
         }
 
