@@ -121,6 +121,7 @@
             // 
             this.comboBoxCamaras.Name = "comboBoxCamaras";
             this.comboBoxCamaras.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxCamaras.Click += new System.EventHandler(this.comboBoxCamaras_Click);
             // 
             // grabarToolStripMenuItem
             // 

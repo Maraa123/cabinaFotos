@@ -171,18 +171,5 @@ namespace cabinaFotos
             }
         }
 
-        private void expandirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal; 
-                this.FormBorderStyle = FormBorderStyle.Sizable; 
-            } 
-            else
-            {
-                this.FormBorderStyle = FormBorderStyle.None; 
-                this.WindowState = FormWindowState.Maximized; 
-            }
-        }
     }
 }
