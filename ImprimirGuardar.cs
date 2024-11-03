@@ -15,7 +15,6 @@ namespace cabinaFotos
 
         public string Path { get; private set; } = @"C:\Users\Mara\Pictures\CAMARA"; // Ruta predeterminada
 
-      
         public string SeleccionarRutaFotos()
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
@@ -66,19 +65,26 @@ namespace cabinaFotos
           
         }
 
-
         public void ImprimirGroupBox(Control groupBox)
         {
-
             Bitmap groupBoxImagen = CapturarControl(groupBox);
 
             if (groupBoxImagen != null)
             {
                 PrintDocument pd = new PrintDocument();
+                // Desactivar la ventana de progreso de impresión
+                pd.PrintController = new StandardPrintController();
                 pd.PrintPage += (sender, e) => ImprimirPagina(sender, e, groupBoxImagen);
-                PrintDialog printDialog = new PrintDialog();
-                printDialog.Document = pd;
 
+                using (PrintDialog printDialog = new PrintDialog())
+                {
+                    printDialog.Document = pd;
+
+                    if (printDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        pd.Print();
+                    }
+                }
             }
             else
             {

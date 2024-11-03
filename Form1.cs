@@ -52,7 +52,7 @@ namespace cabinaFotos
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
             camara.IniciarContador(label1, pictureBoxVideo, pictureBoxes);
-            imprimirGuardar.GuardarGroupBoxEnCarpeta(groupBox1);  // Guarda `groupBox1` en la ruta especificada en `Path`.
+           
 
         }
 
@@ -78,6 +78,7 @@ namespace cabinaFotos
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             imprimirGuardar.ImprimirGroupBox(groupBox1);
+            imprimirGuardar.GuardarGroupBoxEnCarpeta(groupBox1);  // Guarda `groupBox1` en la ruta especificada en `Path`.
         }
 
         private void fondoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,5 +144,9 @@ namespace cabinaFotos
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -100,7 +100,6 @@
             this.pLANTILLAToolStripMenuItem.Name = "pLANTILLAToolStripMenuItem";
             this.pLANTILLAToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.pLANTILLAToolStripMenuItem.Text = "GENERAL";
-//            this.pLANTILLAToolStripMenuItem.Click += new System.EventHandler(this.pLANTILLAToolStripMenuItem_Click);
             // 
             // fondoToolStripMenuItem1
             // 
@@ -282,6 +281,7 @@
             this.Name = "Form1";
             this.Text = "Cabina de Fotos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed_1);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
