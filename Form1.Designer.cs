@@ -42,21 +42,17 @@
             this.fondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expandirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCapturada3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCapturada2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTomarFoto = new System.Windows.Forms.Button();
+            this.pictureBoxCapturada2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCapturada3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).BeginInit();
             this.SuspendLayout();
             // 
             // timeContar
@@ -169,75 +165,23 @@
             this.expandirToolStripMenuItem.Text = "expandir";
             this.expandirToolStripMenuItem.Click += new System.EventHandler(this.expandirToolStripMenuItem_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = global::cabinaFotos.Properties.Resources._2149876014__1_;
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.pictureBoxCapturada);
-            this.groupBox1.Controls.Add(this.pictureBoxCapturada3);
-            this.groupBox1.Controls.Add(this.pictureBoxCapturada2);
-            this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox1.Location = new System.Drawing.Point(1341, 338);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(528, 350);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::cabinaFotos.Properties.Resources.rb_2148490649;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(278, 183);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(235, 144);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBoxCapturada
             // 
             this.pictureBoxCapturada.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxCapturada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxCapturada.Location = new System.Drawing.Point(23, 24);
+            this.pictureBoxCapturada.Location = new System.Drawing.Point(1393, 46);
             this.pictureBoxCapturada.Name = "pictureBoxCapturada";
-            this.pictureBoxCapturada.Size = new System.Drawing.Size(235, 144);
+            this.pictureBoxCapturada.Size = new System.Drawing.Size(282, 239);
             this.pictureBoxCapturada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCapturada.TabIndex = 21;
             this.pictureBoxCapturada.TabStop = false;
             // 
-            // pictureBoxCapturada3
-            // 
-            this.pictureBoxCapturada3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxCapturada3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxCapturada3.Location = new System.Drawing.Point(23, 183);
-            this.pictureBoxCapturada3.Name = "pictureBoxCapturada3";
-            this.pictureBoxCapturada3.Size = new System.Drawing.Size(235, 144);
-            this.pictureBoxCapturada3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada3.TabIndex = 23;
-            this.pictureBoxCapturada3.TabStop = false;
-            // 
-            // pictureBoxCapturada2
-            // 
-            this.pictureBoxCapturada2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxCapturada2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxCapturada2.Location = new System.Drawing.Point(278, 24);
-            this.pictureBoxCapturada2.Name = "pictureBoxCapturada2";
-            this.pictureBoxCapturada2.Size = new System.Drawing.Size(235, 144);
-            this.pictureBoxCapturada2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada2.TabIndex = 22;
-            this.pictureBoxCapturada2.TabStop = false;
-            // 
             // pictureBoxVideo
             // 
             this.pictureBoxVideo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxVideo.Location = new System.Drawing.Point(475, 134);
+            this.pictureBoxVideo.Location = new System.Drawing.Point(459, 46);
             this.pictureBoxVideo.Name = "pictureBoxVideo";
-            this.pictureBoxVideo.Size = new System.Drawing.Size(800, 697);
+            this.pictureBoxVideo.Size = new System.Drawing.Size(864, 794);
             this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVideo.TabIndex = 27;
             this.pictureBoxVideo.TabStop = false;
@@ -266,6 +210,28 @@
             this.btnTomarFoto.UseVisualStyleBackColor = true;
             this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
             // 
+            // pictureBoxCapturada2
+            // 
+            this.pictureBoxCapturada2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada2.Location = new System.Drawing.Point(1393, 321);
+            this.pictureBoxCapturada2.Name = "pictureBoxCapturada2";
+            this.pictureBoxCapturada2.Size = new System.Drawing.Size(282, 239);
+            this.pictureBoxCapturada2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCapturada2.TabIndex = 22;
+            this.pictureBoxCapturada2.TabStop = false;
+            // 
+            // pictureBoxCapturada3
+            // 
+            this.pictureBoxCapturada3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada3.Location = new System.Drawing.Point(1393, 601);
+            this.pictureBoxCapturada3.Name = "pictureBoxCapturada3";
+            this.pictureBoxCapturada3.Size = new System.Drawing.Size(282, 239);
+            this.pictureBoxCapturada3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCapturada3.TabIndex = 23;
+            this.pictureBoxCapturada3.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,7 +239,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBoxCapturada3);
+            this.Controls.Add(this.pictureBoxCapturada);
+            this.Controls.Add(this.pictureBoxCapturada2);
             this.Controls.Add(this.pictureBoxVideo);
             this.Controls.Add(this.btnTomarFoto);
             this.Controls.Add(this.menuStrip1);
@@ -284,12 +252,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,11 +263,7 @@
 
         #endregion
         private System.Windows.Forms.Timer timeContar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBoxCapturada;
-        private System.Windows.Forms.PictureBox pictureBoxCapturada3;
-        private System.Windows.Forms.PictureBox pictureBoxCapturada2;
         private System.Windows.Forms.PictureBox pictureBoxVideo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -317,6 +279,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTomarFoto;
         private System.Windows.Forms.ToolStripMenuItem expandirToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBoxCapturada2;
+        private System.Windows.Forms.PictureBox pictureBoxCapturada3;
     }
 }
 
