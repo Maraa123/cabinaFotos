@@ -42,11 +42,9 @@ namespace cabinaFotos
             return MisDispositivos[index].Name;
         }
 
-        // Iniciar la cámara
         public void IniciarCamara(int indexDispositivo, PictureBox pictureBoxVideo)
         {
             CerrarWebCam();
-
             string nombreVideo = MisDispositivos[indexDispositivo].MonikerString;
             MiWebCam = new VideoCaptureDevice(nombreVideo);
             MiWebCam.NewFrame += (sender, e) => CapturandoFrame(sender, e, pictureBoxVideo); // Asignar método de captura de frames
@@ -70,14 +68,13 @@ namespace cabinaFotos
             pictureBoxVideo.Image = imagen; 
         }
 
-
         private int contadorFotos = 0;
 
         public void IniciarContador(Label labelContador, PictureBox pictureBoxVideo, PictureBox[] pictureBoxes)
         {
             if (MiWebCam != null && MiWebCam.IsRunning)
             {
-                labelContador.Text = "¡Prepárate!";
+                labelContador.Text = "¿Estas listo?";
                 tiempoRestante = 3; // Reiniciar el contador a 3 segundos
 
                 Timer preparateTimer = new Timer();

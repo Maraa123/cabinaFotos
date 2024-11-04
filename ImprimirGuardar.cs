@@ -39,7 +39,6 @@ namespace cabinaFotos
                 Path = nuevaRuta;
             }
         }
-
         // Método para guardar el GroupBox con los PictureBox cargados
         public void GuardarGroupBoxEnCarpeta(Control groupBox)
         {
@@ -63,6 +62,24 @@ namespace cabinaFotos
                 groupBoxImagen.Save(nombreArchivo, ImageFormat.Jpeg);
             }
           
+        }
+
+        public void CargarImpresoras(ComboBox comboBoxImpresoras)
+        {
+            // Limpiar el ComboBox antes de llenarlo
+            comboBoxImpresoras.Items.Clear();
+
+            // Obtener las impresoras instaladas
+            foreach (string impresora in PrinterSettings.InstalledPrinters)
+            {
+                comboBoxImpresoras.Items.Add(impresora);
+            }
+
+            // Seleccionar la primera impresora como predeterminada (si hay alguna)
+            if (comboBoxImpresoras.Items.Count > 0)
+            {
+                comboBoxImpresoras.SelectedIndex = 0; // Selecciona la primera impresora
+            }
         }
 
         public void ImprimirGroupBox(Control groupBox)
