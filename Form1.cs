@@ -22,7 +22,9 @@ namespace cabinaFotos
     {
 
         private Camara camara;
-      
+        private Size originalFormSize;
+        private Dictionary<Control, Rectangle> originalControlSizes = new Dictionary<Control, Rectangle>();
+
         private ImprimirGuardar imprimirGuardar = new ImprimirGuardar();
         public Form1()
         {
@@ -38,6 +40,17 @@ namespace cabinaFotos
             }
             if (comboBoxCamaras.Items.Count > 0)
                 comboBoxCamaras.SelectedIndex = 0;
+
+            // Guarda el tamaño original del formulario y de cada control
+            originalFormSize = this.Size;
+            foreach (Control ctrl in this.Controls)
+            {
+                originalControlSizes[ctrl] = new Rectangle(ctrl.Location, ctrl.Size);
+            }
+
+            // Asocia el evento Resize
+            this.Resize += Form1_Resize;
+
         }
 
     
@@ -145,6 +158,29 @@ namespace cabinaFotos
         private void btnImprimirRapido_Click(object sender, EventArgs e)
         {
             imprimirGuardar.ImprimirDirectamente(groupBox1); 
+        }
+
+
+
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            // Calcula el ratio de cambio en ancho y alto
+            float widthRatio = (float)this.Width / originalFormSize.Width;
+            float heightRatio = (float)this.Height / originalFormSize.Height;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                // Obtiene el tamaño y posición original del control
+                Rectangle originalRect = originalControlSizes[ctrl];
+
+                // Ajusta tamaño y posición proporcionalmente
+                ctrl.Width = (int)(originalRect.Width * widthRatio);
+                ctrl.Height = (int)(originalRect.Height * heightRatio);
+                ctrl.Left = (int)(originalRect.Left * widthRatio);
+                ctrl.Top = (int)(originalRect.Top * heightRatio);
+            }
+
         }
     }
 }

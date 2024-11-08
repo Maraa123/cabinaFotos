@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timeContar = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1904, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1285, 28);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -172,6 +173,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.AutoSize = true;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::cabinaFotos.Properties.Resources._2149876014__1_;
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -179,8 +182,8 @@
             this.groupBox1.Controls.Add(this.pictureBoxCapturada3);
             this.groupBox1.Controls.Add(this.pictureBoxCapturada2);
             this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox1.Location = new System.Drawing.Point(1341, 338);
+            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.groupBox1.Location = new System.Drawing.Point(735, 204);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
@@ -236,9 +239,9 @@
             // pictureBoxVideo
             // 
             this.pictureBoxVideo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxVideo.Location = new System.Drawing.Point(475, 134);
+            this.pictureBoxVideo.Location = new System.Drawing.Point(60, 105);
             this.pictureBoxVideo.Name = "pictureBoxVideo";
-            this.pictureBoxVideo.Size = new System.Drawing.Size(800, 697);
+            this.pictureBoxVideo.Size = new System.Drawing.Size(600, 500);
             this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVideo.TabIndex = 27;
             this.pictureBoxVideo.TabStop = false;
@@ -249,32 +252,39 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(475, 9);
+            this.label1.Location = new System.Drawing.Point(59, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(800, 102);
+            this.label1.Size = new System.Drawing.Size(616, 102);
             this.label1.TabIndex = 31;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTomarFoto
             // 
-            this.btnTomarFoto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnTomarFoto.Image = global::cabinaFotos.Properties.Resources.camara__2_;
+            this.btnTomarFoto.BackColor = System.Drawing.Color.Transparent;
+            this.btnTomarFoto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTomarFoto.Image = global::cabinaFotos.Properties.Resources.boton_rec;
             this.btnTomarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTomarFoto.Location = new System.Drawing.Point(1597, 918);
+            this.btnTomarFoto.Location = new System.Drawing.Point(1123, 645);
             this.btnTomarFoto.Name = "btnTomarFoto";
-            this.btnTomarFoto.Size = new System.Drawing.Size(142, 111);
+            this.btnTomarFoto.Size = new System.Drawing.Size(56, 27);
             this.btnTomarFoto.TabIndex = 24;
-            this.btnTomarFoto.UseVisualStyleBackColor = true;
+            this.btnTomarFoto.Text = "Foto";
+            this.btnTomarFoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTomarFoto.UseVisualStyleBackColor = false;
             this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
             // 
             // btnImprimirRapido
             // 
-            this.btnImprimirRapido.Location = new System.Drawing.Point(1775, 981);
+            this.btnImprimirRapido.BackColor = System.Drawing.Color.Transparent;
+            this.btnImprimirRapido.Image = global::cabinaFotos.Properties.Resources.imprimir;
+            this.btnImprimirRapido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirRapido.Location = new System.Drawing.Point(1194, 645);
             this.btnImprimirRapido.Name = "btnImprimirRapido";
-            this.btnImprimirRapido.Size = new System.Drawing.Size(94, 30);
+            this.btnImprimirRapido.Size = new System.Drawing.Size(69, 27);
             this.btnImprimirRapido.TabIndex = 32;
             this.btnImprimirRapido.Text = "Imprimir";
-            this.btnImprimirRapido.UseVisualStyleBackColor = true;
+            this.btnImprimirRapido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImprimirRapido.UseVisualStyleBackColor = false;
             this.btnImprimirRapido.Click += new System.EventHandler(this.btnImprimirRapido_Click);
             // 
             // Form1
@@ -282,18 +292,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1285, 699);
             this.Controls.Add(this.btnImprimirRapido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxVideo);
             this.Controls.Add(this.btnTomarFoto);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Cabina de Fotos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed_1);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
