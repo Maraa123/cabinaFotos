@@ -14,6 +14,7 @@ using System.Diagnostics.Tracing;
 using System.Drawing.Imaging;
 
 using System.Drawing.Printing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace cabinaFotos
 {
@@ -21,7 +22,7 @@ namespace cabinaFotos
     {
 
         private Camara camara;
-        private FormuCamara ventanaCamara;
+      
         private ImprimirGuardar imprimirGuardar = new ImprimirGuardar();
         public Form1()
         {
@@ -39,15 +40,7 @@ namespace cabinaFotos
                 comboBoxCamaras.SelectedIndex = 0;
         }
 
-        private void btnIniciar_Click_1(object sender, EventArgs e)
-        {
-            ventanaCamara = new FormuCamara();
-            ventanaCamara.ShowDialog(); 
-
-        }
-
-        
-
+    
         private void btnTomarFoto_Click(object sender, EventArgs e)
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
@@ -147,6 +140,11 @@ namespace cabinaFotos
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnImprimirRapido_Click(object sender, EventArgs e)
+        {
+            imprimirGuardar.ImprimirDirectamente(groupBox1); 
         }
     }
 }

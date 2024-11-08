@@ -23,7 +23,7 @@ namespace cabinaFotos
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    return dialog.SelectedPath; 
+                    return dialog.SelectedPath;
                 }
                 else
                 {
@@ -56,13 +56,13 @@ namespace cabinaFotos
             if (groupBoxImagen != null)
             {
                 // Generar un nombre de archivo único usando la fecha y la hora actuales
-                string nombreArchivo = System.IO.Path.Combine(Path,"foto_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg"
+                string nombreArchivo = System.IO.Path.Combine(Path, "foto_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg"
                 );
 
                 // Guardar la imagen en la carpeta seleccionada
                 groupBoxImagen.Save(nombreArchivo, ImageFormat.Jpeg);
             }
-          
+
         }
 
         public void ImprimirGroupBox(Control groupBox)
@@ -92,6 +92,25 @@ namespace cabinaFotos
             }
         }
 
+        public void ImprimirDirectamente(Control groupBox)
+        {
+            Bitmap groupBoxImagen = CapturarControl(groupBox);
+
+            if (groupBoxImagen != null)
+            {
+                PrintDocument pd = new PrintDocument();
+                pd.PrintController = new StandardPrintController(); // Suprime el diálogo de progreso
+                pd.PrintPage += (sender, e) => ImprimirPagina(sender, e, groupBoxImagen);
+
+                // Ejecuta la impresión sin mostrar diálogo
+                pd.Print();
+            }
+            else
+            {
+                MessageBox.Show("No hay contenido en el GroupBox para imprimir.");
+            }
+        }
+
         private Bitmap CapturarControl(Control control)
         {
             Bitmap bmp = new Bitmap(control.Width, control.Height);
@@ -103,17 +122,14 @@ namespace cabinaFotos
         {
             e.PageSettings.Landscape = true;
 
-            // Definir tamaño A6 en puntos (96 puntos por pulgada)
             float a6WidthPoints = 5.83f * 96;
             float a6HeightPoints = 4.13f * 96;
-
-            // Escalar la imagen del GroupBox al tamaño A6
             RectangleF printArea = new RectangleF(0, 0, a6WidthPoints, a6HeightPoints);
 
             e.Graphics.DrawImage(imagenAImprimir, printArea);
         }
+
+
     }
-
-
 }
 

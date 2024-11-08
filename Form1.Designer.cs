@@ -50,6 +50,7 @@
             this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTomarFoto = new System.Windows.Forms.Button();
+            this.btnImprimirRapido = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -259,12 +260,22 @@
             this.btnTomarFoto.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTomarFoto.Image = global::cabinaFotos.Properties.Resources.camara__2_;
             this.btnTomarFoto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTomarFoto.Location = new System.Drawing.Point(795, 869);
+            this.btnTomarFoto.Location = new System.Drawing.Point(1597, 918);
             this.btnTomarFoto.Name = "btnTomarFoto";
-            this.btnTomarFoto.Size = new System.Drawing.Size(138, 103);
+            this.btnTomarFoto.Size = new System.Drawing.Size(142, 111);
             this.btnTomarFoto.TabIndex = 24;
             this.btnTomarFoto.UseVisualStyleBackColor = true;
             this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
+            // 
+            // btnImprimirRapido
+            // 
+            this.btnImprimirRapido.Location = new System.Drawing.Point(1775, 981);
+            this.btnImprimirRapido.Name = "btnImprimirRapido";
+            this.btnImprimirRapido.Size = new System.Drawing.Size(94, 30);
+            this.btnImprimirRapido.TabIndex = 32;
+            this.btnImprimirRapido.Text = "Imprimir";
+            this.btnImprimirRapido.UseVisualStyleBackColor = true;
+            this.btnImprimirRapido.Click += new System.EventHandler(this.btnImprimirRapido_Click);
             // 
             // Form1
             // 
@@ -272,6 +283,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.btnImprimirRapido);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxVideo);
@@ -317,6 +329,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnTomarFoto;
         private System.Windows.Forms.ToolStripMenuItem expandirToolStripMenuItem;
+        private System.Windows.Forms.Button btnImprimirRapido;
     }
 }
 

@@ -10,17 +10,18 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace cabinaFotos
-{
-    class Camara
-    {
+
+
+
+namespace cabinaFotos{
+    class Camara {
         private FilterInfoCollection MisDispositivos;
         private VideoCaptureDevice MiWebCam;
         public string Path { get; private set; } = @"C:\Users\Mara\Pictures\CAMARA"; // Ruta predeterminada
         private bool hayDispositivos = false;
-        private Timer timeContar; // Temporizador para la cuenta regresiva
+       // private Timer timeContar; // Temporizador para la cuenta regresiva
         private int tiempoRestante = 3; // Tiempo de cuenta regresiva
-        public event Action FotoTomada; // Evento para notificar que la foto fue tomada
+     
 
 
         // Cargar dispositivos de cámara
