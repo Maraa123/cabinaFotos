@@ -21,8 +21,8 @@ namespace cabinaFotos{
         private bool hayDispositivos = false;
        // private Timer timeContar; // Temporizador para la cuenta regresiva
         private int tiempoRestante = 3; // Tiempo de cuenta regresiva
-     
 
+        public event Action CapturaFinalizada;
 
         // Cargar dispositivos de cámara
         public void CargarDispositivos()
@@ -140,7 +140,11 @@ namespace cabinaFotos{
             {
                 labelContador.Text = ""; // Limpiar el label al finalizar
                 contadorFotos = 0; // Reiniciar el contador de fotos
+
+                // Invocar el evento para notificar que la captura ha finalizado
+                CapturaFinalizada?.Invoke();
             }
+
         }
 
         // Método para tomar la foto y mostrarla en el PictureBox especificado

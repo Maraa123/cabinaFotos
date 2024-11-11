@@ -50,6 +50,21 @@ namespace cabinaFotos
 
             // Vincula el evento Resize para redimensionar controles al cambiar tamaño de formulario
             this.Resize += Form1_Resize;
+
+
+
+            imprimirGuardar = new ImprimirGuardar();
+            camara.CapturaFinalizada += () =>
+            {
+                // Llama al método de impresión cuando finalice la captura
+                imprimirGuardar.ImprimirDirectamente(groupBox1);
+            };
+
+
+
+
+
+
         }
 
         // Método para guardar tamaños y posiciones originales de todos los controles
@@ -103,7 +118,7 @@ namespace cabinaFotos
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
             camara.IniciarContador(label1, pictureBoxVideo, pictureBoxes);
-           
+        
         }
 
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
