@@ -34,31 +34,31 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pLANTILLAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBoxCamaras = new System.Windows.Forms.ToolStripComboBox();
-            this.pLANTILLAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnImprimirRapido = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCapturada3 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCapturada2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
-            this.btnTomarFoto = new System.Windows.Forms.Button();
             this.fondoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fotoDeCarpetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxCamaras = new System.Windows.Forms.ToolStripComboBox();
             this.grabarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pLANTILLAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fondoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expandirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnImprimirRapido = new System.Windows.Forms.Button();
+            this.pictureBoxVideo = new System.Windows.Forms.PictureBox();
+            this.btnTomarFoto = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCapturada = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCapturada2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCapturada3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).BeginInit();
             this.SuspendLayout();
             // 
             // timeContar
@@ -103,10 +103,43 @@
             this.pLANTILLAToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.pLANTILLAToolStripMenuItem.Text = "GENERAL";
             // 
+            // fondoToolStripMenuItem1
+            // 
+            this.fondoToolStripMenuItem1.Image = global::cabinaFotos.Properties.Resources.imagen;
+            this.fondoToolStripMenuItem1.Name = "fondoToolStripMenuItem1";
+            this.fondoToolStripMenuItem1.Size = new System.Drawing.Size(205, 26);
+            this.fondoToolStripMenuItem1.Text = "Fondo atras";
+            this.fondoToolStripMenuItem1.Click += new System.EventHandler(this.fondoToolStripMenuItem1_Click);
+            // 
+            // fotoDeCarpetaToolStripMenuItem
+            // 
+            this.fotoDeCarpetaToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.carpeta;
+            this.fotoDeCarpetaToolStripMenuItem.Name = "fotoDeCarpetaToolStripMenuItem";
+            this.fotoDeCarpetaToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.fotoDeCarpetaToolStripMenuItem.Text = "Guardar en carpeta";
+            this.fotoDeCarpetaToolStripMenuItem.Click += new System.EventHandler(this.fotoDeCarpetaToolStripMenuItem_Click);
+            // 
             // comboBoxCamaras
             // 
             this.comboBoxCamaras.Name = "comboBoxCamaras";
             this.comboBoxCamaras.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxCamaras.Text = " CAMARA";
+            // 
+            // grabarToolStripMenuItem
+            // 
+            this.grabarToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.boton_rec;
+            this.grabarToolStripMenuItem.Name = "grabarToolStripMenuItem";
+            this.grabarToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.grabarToolStripMenuItem.Text = "Grabar";
+            this.grabarToolStripMenuItem.Click += new System.EventHandler(this.grabarToolStripMenuItem_Click);
+            // 
+            // imprimirToolStripMenuItem
+            // 
+            this.imprimirToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.imprimir;
+            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.imprimirToolStripMenuItem.Text = "Imprimir";
+            this.imprimirToolStripMenuItem.Click += new System.EventHandler(this.imprimirToolStripMenuItem_Click);
             // 
             // pLANTILLAToolStripMenuItem1
             // 
@@ -115,6 +148,30 @@
             this.pLANTILLAToolStripMenuItem1.Name = "pLANTILLAToolStripMenuItem1";
             this.pLANTILLAToolStripMenuItem1.Size = new System.Drawing.Size(205, 26);
             this.pLANTILLAToolStripMenuItem1.Text = "PLANTILLA";
+            // 
+            // fondoToolStripMenuItem
+            // 
+            this.fondoToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.foto;
+            this.fondoToolStripMenuItem.Name = "fondoToolStripMenuItem";
+            this.fondoToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.fondoToolStripMenuItem.Text = "Fondo";
+            this.fondoToolStripMenuItem.Click += new System.EventHandler(this.fondoToolStripMenuItem_Click);
+            // 
+            // logoToolStripMenuItem
+            // 
+            this.logoToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.imagen__2_1;
+            this.logoToolStripMenuItem.Name = "logoToolStripMenuItem";
+            this.logoToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.logoToolStripMenuItem.Text = "Logo";
+            this.logoToolStripMenuItem.Click += new System.EventHandler(this.logoToolStripMenuItem_Click);
+            // 
+            // expandirToolStripMenuItem
+            // 
+            this.expandirToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.expandir;
+            this.expandirToolStripMenuItem.Name = "expandirToolStripMenuItem";
+            this.expandirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.expandirToolStripMenuItem.Text = "expandir";
+            this.expandirToolStripMenuItem.Click += new System.EventHandler(this.expandirToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -142,71 +199,6 @@
             this.btnImprimirRapido.UseVisualStyleBackColor = false;
             this.btnImprimirRapido.Click += new System.EventHandler(this.btnImprimirRapido_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = global::cabinaFotos.Properties.Resources._2149876014__1_;
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.pictureBoxCapturada);
-            this.groupBox1.Controls.Add(this.pictureBoxCapturada3);
-            this.groupBox1.Controls.Add(this.pictureBoxCapturada2);
-            this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.groupBox1.Location = new System.Drawing.Point(735, 204);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(528, 350);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::cabinaFotos.Properties.Resources.rb_2148490649;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(278, 183);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(235, 144);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBoxCapturada
-            // 
-            this.pictureBoxCapturada.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxCapturada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxCapturada.Location = new System.Drawing.Point(23, 24);
-            this.pictureBoxCapturada.Name = "pictureBoxCapturada";
-            this.pictureBoxCapturada.Size = new System.Drawing.Size(235, 144);
-            this.pictureBoxCapturada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada.TabIndex = 21;
-            this.pictureBoxCapturada.TabStop = false;
-            // 
-            // pictureBoxCapturada3
-            // 
-            this.pictureBoxCapturada3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxCapturada3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxCapturada3.Location = new System.Drawing.Point(23, 183);
-            this.pictureBoxCapturada3.Name = "pictureBoxCapturada3";
-            this.pictureBoxCapturada3.Size = new System.Drawing.Size(235, 144);
-            this.pictureBoxCapturada3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada3.TabIndex = 23;
-            this.pictureBoxCapturada3.TabStop = false;
-            // 
-            // pictureBoxCapturada2
-            // 
-            this.pictureBoxCapturada2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxCapturada2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxCapturada2.Location = new System.Drawing.Point(278, 24);
-            this.pictureBoxCapturada2.Name = "pictureBoxCapturada2";
-            this.pictureBoxCapturada2.Size = new System.Drawing.Size(235, 144);
-            this.pictureBoxCapturada2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCapturada2.TabIndex = 22;
-            this.pictureBoxCapturada2.TabStop = false;
-            // 
             // pictureBoxVideo
             // 
             this.pictureBoxVideo.BackColor = System.Drawing.Color.Transparent;
@@ -232,61 +224,62 @@
             this.btnTomarFoto.UseVisualStyleBackColor = false;
             this.btnTomarFoto.Click += new System.EventHandler(this.btnTomarFoto_Click);
             // 
-            // fondoToolStripMenuItem1
+            // panel1
             // 
-            this.fondoToolStripMenuItem1.Image = global::cabinaFotos.Properties.Resources.imagen;
-            this.fondoToolStripMenuItem1.Name = "fondoToolStripMenuItem1";
-            this.fondoToolStripMenuItem1.Size = new System.Drawing.Size(205, 26);
-            this.fondoToolStripMenuItem1.Text = "Fondo atras";
-            this.fondoToolStripMenuItem1.Click += new System.EventHandler(this.fondoToolStripMenuItem1_Click);
+            this.panel1.BackgroundImage = global::cabinaFotos.Properties.Resources._2149876014__1_;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBoxCapturada);
+            this.panel1.Controls.Add(this.pictureBoxCapturada2);
+            this.panel1.Controls.Add(this.pictureBoxCapturada3);
+            this.panel1.Location = new System.Drawing.Point(726, 242);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(537, 363);
+            this.panel1.TabIndex = 33;
             // 
-            // fotoDeCarpetaToolStripMenuItem
+            // pictureBox1
             // 
-            this.fotoDeCarpetaToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.carpeta;
-            this.fotoDeCarpetaToolStripMenuItem.Name = "fotoDeCarpetaToolStripMenuItem";
-            this.fotoDeCarpetaToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.fotoDeCarpetaToolStripMenuItem.Text = "Guardar en carpeta";
-            this.fotoDeCarpetaToolStripMenuItem.Click += new System.EventHandler(this.fotoDeCarpetaToolStripMenuItem_Click);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::cabinaFotos.Properties.Resources.rb_2148490649;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(270, 189);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(235, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
-            // grabarToolStripMenuItem
+            // pictureBoxCapturada
             // 
-            this.grabarToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.boton_rec;
-            this.grabarToolStripMenuItem.Name = "grabarToolStripMenuItem";
-            this.grabarToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.grabarToolStripMenuItem.Text = "Grabar";
-            this.grabarToolStripMenuItem.Click += new System.EventHandler(this.grabarToolStripMenuItem_Click);
+            this.pictureBoxCapturada.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada.Location = new System.Drawing.Point(15, 30);
+            this.pictureBoxCapturada.Name = "pictureBoxCapturada";
+            this.pictureBoxCapturada.Size = new System.Drawing.Size(235, 144);
+            this.pictureBoxCapturada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCapturada.TabIndex = 21;
+            this.pictureBoxCapturada.TabStop = false;
             // 
-            // imprimirToolStripMenuItem
+            // pictureBoxCapturada2
             // 
-            this.imprimirToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.imprimir;
-            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.imprimirToolStripMenuItem.Text = "Imprimir";
-            this.imprimirToolStripMenuItem.Click += new System.EventHandler(this.imprimirToolStripMenuItem_Click);
+            this.pictureBoxCapturada2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada2.Location = new System.Drawing.Point(270, 30);
+            this.pictureBoxCapturada2.Name = "pictureBoxCapturada2";
+            this.pictureBoxCapturada2.Size = new System.Drawing.Size(235, 144);
+            this.pictureBoxCapturada2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCapturada2.TabIndex = 22;
+            this.pictureBoxCapturada2.TabStop = false;
             // 
-            // fondoToolStripMenuItem
+            // pictureBoxCapturada3
             // 
-            this.fondoToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.foto;
-            this.fondoToolStripMenuItem.Name = "fondoToolStripMenuItem";
-            this.fondoToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.fondoToolStripMenuItem.Text = "Fondo";
-            this.fondoToolStripMenuItem.Click += new System.EventHandler(this.fondoToolStripMenuItem_Click);
-            // 
-            // logoToolStripMenuItem
-            // 
-            this.logoToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.imagen__2_1;
-            this.logoToolStripMenuItem.Name = "logoToolStripMenuItem";
-            this.logoToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.logoToolStripMenuItem.Text = "Logo";
-            this.logoToolStripMenuItem.Click += new System.EventHandler(this.logoToolStripMenuItem_Click);
-            // 
-            // expandirToolStripMenuItem
-            // 
-            this.expandirToolStripMenuItem.Image = global::cabinaFotos.Properties.Resources.expandir;
-            this.expandirToolStripMenuItem.Name = "expandirToolStripMenuItem";
-            this.expandirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.expandirToolStripMenuItem.Text = "expandir";
-            this.expandirToolStripMenuItem.Click += new System.EventHandler(this.expandirToolStripMenuItem_Click);
+            this.pictureBoxCapturada3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCapturada3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxCapturada3.Location = new System.Drawing.Point(15, 189);
+            this.pictureBoxCapturada3.Name = "pictureBoxCapturada3";
+            this.pictureBoxCapturada3.Size = new System.Drawing.Size(235, 144);
+            this.pictureBoxCapturada3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCapturada3.TabIndex = 23;
+            this.pictureBoxCapturada3.TabStop = false;
             // 
             // Form1
             // 
@@ -294,9 +287,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1285, 699);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnImprimirRapido);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxVideo);
             this.Controls.Add(this.btnTomarFoto);
             this.Controls.Add(this.menuStrip1);
@@ -305,16 +298,14 @@
             this.Name = "Form1";
             this.Text = "Cabina de Fotos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed_1);
-            this.Load += new System.EventHandler(this.Form1_Load);
-          //  this.Resize += new System.EventHandler(this.Form1_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).EndInit();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCapturada3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,11 +313,6 @@
 
         #endregion
         private System.Windows.Forms.Timer timeContar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBoxCapturada;
-        private System.Windows.Forms.PictureBox pictureBoxCapturada3;
-        private System.Windows.Forms.PictureBox pictureBoxCapturada2;
         private System.Windows.Forms.PictureBox pictureBoxVideo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -343,6 +329,11 @@
         private System.Windows.Forms.Button btnTomarFoto;
         private System.Windows.Forms.ToolStripMenuItem expandirToolStripMenuItem;
         private System.Windows.Forms.Button btnImprimirRapido;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCapturada;
+        private System.Windows.Forms.PictureBox pictureBoxCapturada2;
+        private System.Windows.Forms.PictureBox pictureBoxCapturada3;
     }
 }
 

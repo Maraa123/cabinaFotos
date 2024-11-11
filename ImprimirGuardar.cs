@@ -41,7 +41,7 @@ namespace cabinaFotos
         }
 
         // Método para guardar el GroupBox con los PictureBox cargados
-        public void GuardarGroupBoxEnCarpeta(Control groupBox)
+        public void GuardarGroupBoxEnCarpeta(Control panel1)
         {
             // Verificar que la ruta esté establecida
             if (string.IsNullOrEmpty(Path))
@@ -51,7 +51,7 @@ namespace cabinaFotos
             }
 
             // Capturar la imagen del GroupBox con todos los PictureBox cargados
-            Bitmap groupBoxImagen = CapturarControl(groupBox);
+            Bitmap groupBoxImagen = CapturarControl(panel1);
 
             if (groupBoxImagen != null)
             {
@@ -65,15 +65,14 @@ namespace cabinaFotos
 
         }
 
-        public void ImprimirGroupBox(Control groupBox)
+        public void ImprimirGroupBox(Control panel1)
         {
-            Bitmap groupBoxImagen = CapturarControl(groupBox);
+            Bitmap groupBoxImagen = CapturarControl(panel1, 2); // Factor de escala de 2 para alta resolución
 
             if (groupBoxImagen != null)
             {
                 PrintDocument pd = new PrintDocument();
-                // Desactivar la ventana de progreso de impresión
-                pd.PrintController = new StandardPrintController();
+                pd.PrintController = new StandardPrintController(); // Desactiva el diálogo de progreso
                 pd.PrintPage += (sender, e) => ImprimirPagina(sender, e, groupBoxImagen);
 
                 using (PrintDialog printDialog = new PrintDialog())
@@ -92,9 +91,9 @@ namespace cabinaFotos
             }
         }
 
-        public void ImprimirDirectamente(Control groupBox)
+        public void ImprimirDirectamente(Control panel1)
         {
-            Bitmap groupBoxImagen = CapturarControl(groupBox);
+            Bitmap groupBoxImagen = CapturarControl(panel1);
 
             if (groupBoxImagen != null)
             {
@@ -111,10 +110,12 @@ namespace cabinaFotos
             }
         }
 
-        private Bitmap CapturarControl(Control control)
+        private Bitmap CapturarControl(Control control, int scaleFactor = 1)
         {
-            Bitmap bmp = new Bitmap(control.Width, control.Height);
-            control.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            int width = control.Width * scaleFactor;
+            int height = control.Height * scaleFactor;
+            Bitmap bmp = new Bitmap(width, height);
+            control.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
             return bmp;
         }
 
@@ -122,10 +123,16 @@ namespace cabinaFotos
         {
             e.PageSettings.Landscape = true;
 
-            float a6WidthPoints = 5.83f * 96;
-            float a6HeightPoints = 4.13f * 96;
+            float a6WidthPoints = 5.83f * 96;  // A6 width in pixels at 96 DPI
+            float a6HeightPoints = 4.13f * 96; // A6 height in pixels at 96 DPI
             RectangleF printArea = new RectangleF(0, 0, a6WidthPoints, a6HeightPoints);
 
+            // Configura los gráficos para mejorar la calidad de impresión
+            e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Dibuja la imagen en alta calidad
             e.Graphics.DrawImage(imagenAImprimir, printArea);
         }
 
