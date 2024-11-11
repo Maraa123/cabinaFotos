@@ -124,6 +124,12 @@
   <data name="imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imprimir1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fondo Claro pintura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo Claro pintura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="23181716_6688546" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\23181716_6688546.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="2149876014 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2149876014 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,8 +145,17 @@
   <data name="camara (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\camara (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fondo Claro pintura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\FOTOS PLANTILLAS\fondo Claro pintura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="expandir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\expandir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imagen (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagen (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imagen (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagen (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,16 +163,7 @@
   <data name="boton-rec" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton-rec1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imagen (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imagen (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="imagen (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imagen (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="23181716_6688546" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\23181716_6688546.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo Claro pintura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\FOTOS PLANTILLAS\fondo Claro pintura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="10128006" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\10128006.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

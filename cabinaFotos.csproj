@@ -208,6 +208,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="foto.ico" />
+    <None Include="Resources\10128006.png" />
+    <None Include="Resources\fondo Claro pintura.jpg" />
     <None Include="FOTOS PLANTILLAS\fondo Claro pintura.jpg" />
     <EmbeddedResource Include="Resources\expandir.png" />
   </ItemGroup>

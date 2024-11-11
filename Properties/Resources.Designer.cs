@@ -63,6 +63,16 @@ namespace cabinaFotos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _10128006 {
+            get {
+                object obj = ResourceManager.GetObject("10128006", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2149876014__1_ {
             get {
                 object obj = ResourceManager.GetObject("2149876014 (1)", resourceCulture);
@@ -136,6 +146,16 @@ namespace cabinaFotos.Properties {
         internal static System.Drawing.Bitmap fondo_Claro_pintura {
             get {
                 object obj = ResourceManager.GetObject("fondo Claro pintura", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fondo_Claro_pintura1 {
+            get {
+                object obj = ResourceManager.GetObject("fondo Claro pintura1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
