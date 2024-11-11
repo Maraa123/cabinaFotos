@@ -25,6 +25,7 @@ namespace cabinaFotos
         private Size originalFormSize;
         private Dictionary<Control, Rectangle> originalControlSizes = new Dictionary<Control, Rectangle>();
 
+
         private ImprimirGuardar imprimirGuardar = new ImprimirGuardar();
         public Form1()
         {
@@ -41,25 +42,68 @@ namespace cabinaFotos
             if (comboBoxCamaras.Items.Count > 0)
                 comboBoxCamaras.SelectedIndex = 0;
 
-            // Guarda el tamaño original del formulario y de cada control
+            // Guarda el tamaño original del formulario
             originalFormSize = this.Size;
-            foreach (Control ctrl in this.Controls)
-            {
-                originalControlSizes[ctrl] = new Rectangle(ctrl.Location, ctrl.Size);
-            }
 
-            // Asocia el evento Resize
+            // Guarda el tamaño y posición de todos los controles (anidados también)
+            SaveOriginalControlSizes(this);
+
+            // Vincula el evento Resize para redimensionar controles al cambiar tamaño de formulario
             this.Resize += Form1_Resize;
-
         }
 
-    
+        // Método para guardar tamaños y posiciones originales de todos los controles
+        private void SaveOriginalControlSizes(Control container)
+        {
+            foreach (Control ctrl in container.Controls)
+            {
+                originalControlSizes[ctrl] = new Rectangle(ctrl.Location, ctrl.Size);
+
+                // Llama recursivamente para guardar los controles anidados
+                if (ctrl.Controls.Count > 0)
+                {
+                    SaveOriginalControlSizes(ctrl);
+                }
+            }
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            float widthRatio = (float)this.Width / originalFormSize.Width;
+            float heightRatio = (float)this.Height / originalFormSize.Height;
+
+            ResizeAllControls(this, widthRatio, heightRatio);
+        }
+
+        // Redimensiona todos los controles recursivamente
+        private void ResizeAllControls(Control container, float widthRatio, float heightRatio)
+        {
+            foreach (Control ctrl in container.Controls)
+            {
+                if (originalControlSizes.ContainsKey(ctrl))
+                {
+                    Rectangle originalRect = originalControlSizes[ctrl];
+
+                    ctrl.Width = (int)(originalRect.Width * widthRatio);
+                    ctrl.Height = (int)(originalRect.Height * heightRatio);
+                    ctrl.Left = (int)(originalRect.Left * widthRatio);
+                    ctrl.Top = (int)(originalRect.Top * heightRatio);
+                }
+
+                if (ctrl.Controls.Count > 0)
+                {
+                    ResizeAllControls(ctrl, widthRatio, heightRatio);
+                }
+            }
+        }
+
+
+
         private void btnTomarFoto_Click(object sender, EventArgs e)
         {
             PictureBox[] pictureBoxes = { pictureBoxCapturada, pictureBoxCapturada2, pictureBoxCapturada3 }; // Asegúrate de que estos PictureBox existan
             camara.IniciarContador(label1, pictureBoxVideo, pictureBoxes);
            
-
         }
 
         private void Form1_FormClosed_1(object sender, FormClosedEventArgs e)
@@ -160,27 +204,5 @@ namespace cabinaFotos
             imprimirGuardar.ImprimirDirectamente(groupBox1); 
         }
 
-
-
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            // Calcula el ratio de cambio en ancho y alto
-            float widthRatio = (float)this.Width / originalFormSize.Width;
-            float heightRatio = (float)this.Height / originalFormSize.Height;
-
-            foreach (Control ctrl in this.Controls)
-            {
-                // Obtiene el tamaño y posición original del control
-                Rectangle originalRect = originalControlSizes[ctrl];
-
-                // Ajusta tamaño y posición proporcionalmente
-                ctrl.Width = (int)(originalRect.Width * widthRatio);
-                ctrl.Height = (int)(originalRect.Height * heightRatio);
-                ctrl.Left = (int)(originalRect.Left * widthRatio);
-                ctrl.Top = (int)(originalRect.Top * heightRatio);
-            }
-
         }
     }
-}
