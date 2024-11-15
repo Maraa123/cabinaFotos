@@ -123,11 +123,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Coral;
-            this.label1.Location = new System.Drawing.Point(219, -26);
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Location = new System.Drawing.Point(217, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(573, 102);
+            this.label1.Size = new System.Drawing.Size(541, 104);
             this.label1.TabIndex = 31;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
             // 
@@ -203,9 +204,9 @@
             // pictureBoxVideo
             // 
             this.pictureBoxVideo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxVideo.Location = new System.Drawing.Point(237, 79);
+            this.pictureBoxVideo.Location = new System.Drawing.Point(217, 107);
             this.pictureBoxVideo.Name = "pictureBoxVideo";
-            this.pictureBoxVideo.Size = new System.Drawing.Size(555, 466);
+            this.pictureBoxVideo.Size = new System.Drawing.Size(541, 442);
             this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVideo.TabIndex = 27;
             this.pictureBoxVideo.TabStop = false;

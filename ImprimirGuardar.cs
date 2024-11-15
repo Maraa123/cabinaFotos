@@ -65,13 +65,14 @@ namespace cabinaFotos
 
         }
 
-        public void ImprimirGroupBox(Control panel1)
+        public void ConfigurarImpresionGroupBox(Control panel1)
         {
-            Bitmap groupBoxImagen = CapturarControl(panel1, 2); // Factor de escala de 2 para alta resolución
+            Bitmap groupBoxImagen = CapturarControl(panel1, 2); // Factor de escala para alta resolución
 
             if (groupBoxImagen != null)
             {
                 PrintDocument pd = new PrintDocument();
+                pd.DefaultPageSettings.PaperSize = new PaperSize("A6", 413, 583); // Tamaño A6 en hundredths of an inch
                 pd.PrintController = new StandardPrintController(); // Desactiva el diálogo de progreso
                 pd.PrintPage += (sender, e) => ImprimirPagina(sender, e, groupBoxImagen);
 
@@ -79,29 +80,31 @@ namespace cabinaFotos
                 {
                     printDialog.Document = pd;
 
+                    // Muestra el cuadro de diálogo de impresión para configuración, sin imprimir
                     if (printDialog.ShowDialog() == DialogResult.OK)
                     {
-                        pd.Print();
+                        MessageBox.Show("Configuración de impresión aplicada. Puedes ahora imprimir directamente.");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("No hay contenido en el GroupBox para imprimir.");
+                MessageBox.Show("No hay contenido en el GroupBox para configurar la impresión.");
             }
         }
 
         public void ImprimirDirectamente(Control panel1)
         {
-            Bitmap groupBoxImagen = CapturarControl(panel1);
+            Bitmap groupBoxImagen = CapturarControl(panel1, 2); // Factor de escala de 2 para alta resolución
 
             if (groupBoxImagen != null)
             {
                 PrintDocument pd = new PrintDocument();
+                pd.DefaultPageSettings.PaperSize = new PaperSize("A6", 413, 583); // Tamaño A6 en hundredths of an inch
                 pd.PrintController = new StandardPrintController(); // Suprime el diálogo de progreso
                 pd.PrintPage += (sender, e) => ImprimirPagina(sender, e, groupBoxImagen);
 
-                // Ejecuta la impresión sin mostrar diálogo
+                // Ejecuta la impresión sin mostrar el diálogo de configuración
                 pd.Print();
             }
             else
@@ -121,18 +124,22 @@ namespace cabinaFotos
 
         private void ImprimirPagina(object sender, PrintPageEventArgs e, Bitmap imagenAImprimir)
         {
+            // Configurar orientación horizontal para A6
             e.PageSettings.Landscape = true;
 
-            float a6WidthPoints = 5.83f * 96;  // A6 width in pixels at 96 DPI
-            float a6HeightPoints = 4.13f * 96; // A6 height in pixels at 96 DPI
-            RectangleF printArea = new RectangleF(0, 0, a6WidthPoints, a6HeightPoints);
+            // Dimensiones exactas de A6 en hundredths of an inch
+            float a6WidthInPixels = 413; // Ancho en hundredths of an inch
+            float a6HeightInPixels = 583; // Alto en hundredths of an inch
+
+            // Calculamos el área de impresión para A6
+            RectangleF printArea = new RectangleF(0, 0, a6WidthInPixels, a6HeightInPixels);
 
             // Configura los gráficos para mejorar la calidad de impresión
             e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            // Dibuja la imagen en alta calidad
+            // Dibuja la imagen ajustada al área definida
             e.Graphics.DrawImage(imagenAImprimir, printArea);
         }
 

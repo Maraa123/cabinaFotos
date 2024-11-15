@@ -107,7 +107,7 @@ namespace cabinaFotos
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            imprimirGuardar.ImprimirGroupBox(panel1);
+            imprimirGuardar.ConfigurarImpresionGroupBox(panel1);
             imprimirGuardar.GuardarGroupBoxEnCarpeta(panel1);
         }
 

@@ -19,7 +19,7 @@ namespace cabinaFotos
             private VideoCaptureDevice MiWebCam;
             public string Path { get; private set; } = @"C:\Users\Mara\Pictures\CAMARA"; // Ruta predeterminada
             private bool hayDispositivos = false;
-            private int tiempoRestante = 3; // Tiempo de cuenta regresiva
+            private int tiempoRestante = 5; // Tiempo de cuenta regresiva
             private int contadorFotos = 0;
             private Timer temporizadorCaptura;
 
@@ -65,7 +65,7 @@ namespace cabinaFotos
 
                 labelContador.Text = "¡Prepárate!";
                 contadorFotos = 0;
-                tiempoRestante = 3;
+                tiempoRestante = 5;
 
                 temporizadorCaptura = new Timer
                 {
@@ -90,7 +90,7 @@ namespace cabinaFotos
                     contadorFotos++;
                     if (contadorFotos < pictureBoxes.Length)
                     {
-                        tiempoRestante = 3; // Reiniciar el contador para la próxima foto
+                        tiempoRestante = 5; // Reiniciar el contador para la próxima foto
                     }
                     else
                     {
